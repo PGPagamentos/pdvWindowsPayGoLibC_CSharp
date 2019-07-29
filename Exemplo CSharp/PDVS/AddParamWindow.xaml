@@ -1,0 +1,19 @@
+﻿<Window x:Class="PDVS.AddParamWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PDVS"
+        mc:Ignorable="d"
+        WindowStyle="ToolWindow"
+        Title="AddParamWindow" Height="150.333" Width="368.333" Topmost="True">
+    <Grid>
+        <Button x:Name="btnApply" Content="Aplicar" HorizontalAlignment="Left" Margin="276,81,0,0" VerticalAlignment="Top" Width="75" Click="btnApply_Click"/>
+        <Button x:Name="btnCancel" Content="Cancelar" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="75" Click="btnCancel_Click"/>
+        <ComboBox x:Name="cmbParam" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="170"/>
+        <TextBox x:Name="txtValue" HorizontalAlignment="Left" Height="23" Margin="195,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156"/>
+        <Label x:Name="lblParameter" Content="PARÂMETRO:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblValue" Content="VALOR:" HorizontalAlignment="Left" Margin="190,11,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

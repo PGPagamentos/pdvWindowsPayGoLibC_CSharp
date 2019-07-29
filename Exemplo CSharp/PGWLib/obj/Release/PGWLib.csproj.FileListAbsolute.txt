@@ -1,0 +1,9 @@
+C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\bin\Release\PGWLib.dll
+C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\bin\Release\PGWLib.pdb
+C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\obj\Release\PGWLib.FormDisplayMessage.resources
+C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\obj\Release\PGWLib.FormMenu.resources
+C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\obj\Release\PGWLib.FormTypedData.resources
+C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\obj\Release\PGWLib.csproj.GenerateResource.Cache
+C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\obj\Release\PGWLib.dll
+C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\obj\Release\PGWLib.pdb
+C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\obj\Release\PGWLib.csprojResolveAssemblyReference.cache

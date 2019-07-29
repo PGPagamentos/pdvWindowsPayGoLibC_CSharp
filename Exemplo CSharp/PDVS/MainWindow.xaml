@@ -1,0 +1,25 @@
+﻿<Window x:Class="PDVS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PDVS"
+        mc:Ignorable="d"
+        WindowStyle="ToolWindow"
+        ResizeMode="NoResize"
+        Title="MainWindow" Height="390.167" Width="348.313">
+    <Grid Margin="0">
+        <ComboBox x:Name="cmbOper" Margin="140,14,15.333,0" VerticalAlignment="Top" IsReadOnly="True" SelectionChanged="cmbOper_SelectionChanged"/>
+        <Label x:Name="LblOper" Content="PWINFO__OPERATION" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="125"/>
+        <ListBox x:Name="lstParameters" Margin="10,72,15.333,56.333" MouseDoubleClick="lstParameters_MouseDoubleClick"/>
+        <Label x:Name="LblParameters" Content="PARÂMETROS:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnClear" Content="Limpar" HorizontalAlignment="Left"  Margin="10,311,0,0" Width="75" Height="32" Click="btnClear_Click"/>
+        <Button x:Name="btnCaptureWithPinpad" HorizontalAlignment="Left" Margin="130,311,0,0"  Width="75" Height="32" FontSize="9" Click="btnCaptureWithPinpad_Click" >
+            <TextBlock>Capturar dado<LineBreak/>usando PINPad</TextBlock>
+        </Button>
+        <Button x:Name="btnExecute" Content="Executar" Margin="256,310,10.333,0" Height="32" Click="btnExecute_Click"/>
+        <Button x:Name="btnAddParam" Content="Adicionar" Margin="251,47,15.333,0" VerticalAlignment="Top" Click="btnAddParam_Click"/>
+        <Button x:Name="btnRemove" Content="Remover" Margin="160,47,106.333,0" VerticalAlignment="Top"  Click="btnRemove_Click"/>
+        
+    </Grid>
+</Window>

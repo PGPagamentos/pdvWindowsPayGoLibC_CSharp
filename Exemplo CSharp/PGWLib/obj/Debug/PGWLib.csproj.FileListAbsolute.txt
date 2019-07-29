@@ -1,0 +1,29 @@
+C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\bin\Debug\PGWLib.dll
+C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\bin\Debug\PGWLib.pdb
+C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\obj\Debug\PGWLib.FormDisplayMessage.resources
+C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\obj\Debug\PGWLib.FormMenu.resources
+C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\obj\Debug\PGWLib.FormTypedData.resources
+C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\obj\Debug\PGWLib.csproj.GenerateResource.cache
+C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\obj\Debug\PGWLib.csproj.CoreCompileInputs.cache
+C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\obj\Debug\PGWLib.dll
+C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\obj\Debug\PGWLib.pdb
+C:\Users\Teste\Desktop\PDVS_v3.1\PGWLib\bin\Debug\PGWLib.dll
+C:\Users\Teste\Desktop\PDVS_v3.1\PGWLib\bin\Debug\PGWLib.pdb
+C:\Users\Teste\Desktop\PDVS_v3.1\PGWLib\obj\Debug\PGWLib.csprojAssemblyReference.cache
+C:\Users\Teste\Desktop\PDVS_v3.1\PGWLib\obj\Debug\PGWLib.FormDisplayMessage.resources
+C:\Users\Teste\Desktop\PDVS_v3.1\PGWLib\obj\Debug\PGWLib.FormMenu.resources
+C:\Users\Teste\Desktop\PDVS_v3.1\PGWLib\obj\Debug\PGWLib.FormTypedData.resources
+C:\Users\Teste\Desktop\PDVS_v3.1\PGWLib\obj\Debug\PGWLib.csproj.GenerateResource.cache
+C:\Users\Teste\Desktop\PDVS_v3.1\PGWLib\obj\Debug\PGWLib.csproj.CoreCompileInputs.cache
+C:\Users\Teste\Desktop\PDVS_v3.1\PGWLib\obj\Debug\PGWLib.dll
+C:\Users\Teste\Desktop\PDVS_v3.1\PGWLib\obj\Debug\PGWLib.pdb
+C:\Pay Go\PayGo Dedicado Windows v4.0.75.1\Aplicação de exemplo\PDVS_v3.1\PGWLib\bin\Debug\PGWLib.dll
+C:\Pay Go\PayGo Dedicado Windows v4.0.75.1\Aplicação de exemplo\PDVS_v3.1\PGWLib\bin\Debug\PGWLib.pdb
+C:\Pay Go\PayGo Dedicado Windows v4.0.75.1\Aplicação de exemplo\PDVS_v3.1\PGWLib\obj\Debug\PGWLib.csprojAssemblyReference.cache
+C:\Pay Go\PayGo Dedicado Windows v4.0.75.1\Aplicação de exemplo\PDVS_v3.1\PGWLib\obj\Debug\PGWLib.FormDisplayMessage.resources
+C:\Pay Go\PayGo Dedicado Windows v4.0.75.1\Aplicação de exemplo\PDVS_v3.1\PGWLib\obj\Debug\PGWLib.FormMenu.resources
+C:\Pay Go\PayGo Dedicado Windows v4.0.75.1\Aplicação de exemplo\PDVS_v3.1\PGWLib\obj\Debug\PGWLib.FormTypedData.resources
+C:\Pay Go\PayGo Dedicado Windows v4.0.75.1\Aplicação de exemplo\PDVS_v3.1\PGWLib\obj\Debug\PGWLib.csproj.GenerateResource.cache
+C:\Pay Go\PayGo Dedicado Windows v4.0.75.1\Aplicação de exemplo\PDVS_v3.1\PGWLib\obj\Debug\PGWLib.csproj.CoreCompileInputs.cache
+C:\Pay Go\PayGo Dedicado Windows v4.0.75.1\Aplicação de exemplo\PDVS_v3.1\PGWLib\obj\Debug\PGWLib.dll
+C:\Pay Go\PayGo Dedicado Windows v4.0.75.1\Aplicação de exemplo\PDVS_v3.1\PGWLib\obj\Debug\PGWLib.pdb
