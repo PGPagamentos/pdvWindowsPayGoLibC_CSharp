@@ -1,2 +1,2 @@
-# PayGoC-
+# PayGoDLLCSharp
 C#
