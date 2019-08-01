@@ -266,9 +266,9 @@ namespace PGWLib
 
         public enum E_PWDAT
         {
-   	       PWDAT_MENU         = 1,   // menu de opções
-    	   PWDAT_TYPED        = 2,   // entrada digitada
-    	   PWDAT_CARDINF      = 3,   // dados de cartão
+   	       PWDAT_MENU         = 1,   // menu de opções  
+    	   PWDAT_TYPED        = 2,   // entrada digitada   
+    	   PWDAT_CARDINF      = 3,   // dados de cartão   
     	   PWDAT_PPENTRY      = 5,   // entrada digitada no PIN-pad
     	   PWDAT_PPENCPIN     = 6,   // senha criptografada
     	   PWDAT_CARDOFF      = 9,   // processamento off-line de cartão com chip
