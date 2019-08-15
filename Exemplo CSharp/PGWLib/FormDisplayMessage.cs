@@ -27,25 +27,8 @@ namespace PGWLib
 
         private void TimerTick(object sender, EventArgs e)
         {
-            try
-            {
                 this.Close();
             }
-            catch (Exception)
-            {
-
-            }
-
-            try
-            {
-
-            }
-            catch (Exception)
-            {
-                BeginInvoke((Action)delegate { this.Close(); });
-            }
-            
-        }
 
         public void Show(string message, int timeout = 30000)
         {

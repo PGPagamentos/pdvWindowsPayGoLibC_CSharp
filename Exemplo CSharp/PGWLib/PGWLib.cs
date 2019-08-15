@@ -59,14 +59,8 @@ namespace PGWLib
 
             }
 
-            if (!string.IsNullOrEmpty(message))
-            {
-                FormDisplayMessage busyForm = new FormDisplayMessage(message);
-                busyForm.Start();
-                Thread.Sleep(3000);
-                busyForm.Stop();
-
-            }
+            FormDisplayMessage fdm = new FormDisplayMessage();
+            fdm.Show(message, 3000);
 
             return ret;
         }
@@ -115,19 +109,18 @@ namespace PGWLib
             return ret;
         }
 
-        public int getInputFromPP(ref string userTypedValue, E_PWUserDataMessages messageToDisplay, int minLength, int MaxLength){
+        public int getInputFromPP(ref string userTypedValue, E_PWUserDataMessages messageToDisplay, int minLength, int MaxLength, int timeout = 30){
 
             StringBuilder value = new StringBuilder(10000);
             short ret = 0;
 
-            ret = Interop.PW_iPPGetUserData((short)messageToDisplay, (short)minLength, (short)MaxLength, 30, value);
+            ret = Interop.PW_iPPGetUserData((short)messageToDisplay, (short)minLength, (short)MaxLength, (short)timeout, value);
             Debug.Print(string.Format("CALLED iPPGetUserData COM RETORNO {0}", ret.ToString()));
             if (ret != 0) return (int)ret;
 
             userTypedValue = value.ToString();
             Debug.Print(string.Format("E VALOR {0}", userTypedValue));
 
-            ret = (short)loopPP();
             if (ret != 0) return (int)ret;
             
             return (int)ret;
@@ -198,8 +191,7 @@ namespace PGWLib
 
                     case (int)E_PWDAT.PWDAT_BARCODE:
                         ret = getTypedDataFromUser(item);
-                        if(ret == 0) return ret;
-                        break;
+                        return ret;
 
                     case (int)E_PWDAT.PWDAT_CARDINF:
                         if (item.ulTipoEntradaCartao == 1)
@@ -213,22 +205,19 @@ namespace PGWLib
                             ret = Interop.PW_iPPGetCard(index);
                             if (ret == (int)E_PWRET.PWRET_OK) ret = loopPP();
                         }
-                        if (ret == 0) return ret;
-                        break;
+                        return ret;
 
                     case (int)E_PWDAT.PWDAT_CARDONL:
                         ret = Interop.PW_iPPFinishChip(index);
                         Debug.Print(string.Format("CALLED iPPFinishChip COM RETORNO {0}", ret.ToString()));
                         if (ret == (int)E_PWRET.PWRET_OK) ret = loopPP();
-                        if (ret == 0) return ret;
-                        break;
+                        return ret;
 
                     case (int)E_PWDAT.PWDAT_CARDOFF:
                         ret = Interop.PW_iPPGoOnChip(index);
                         Debug.Print(string.Format("CALLED iPPGoOnChip COM RETORNO {0}", ret.ToString()));
                         if (ret == (int)E_PWRET.PWRET_OK) ret = loopPP();
-                        if (ret == 0) return ret;
-                        break;
+                        return ret;
 
                     case (int)E_PWDAT.PWDAT_MENU:
                         return getMenuFromUser(item);
@@ -237,29 +226,25 @@ namespace PGWLib
                         ret = Interop.PW_iPPConfirmData(index);
                         Debug.Print(string.Format("CALLED iPPConfirmData COM RETORNO {0}", ret.ToString()));
                         if (ret == (int)E_PWRET.PWRET_OK) ret = loopPP();
-                        if (ret == 0) return ret;
-                        break;
+                        return ret;
 
                     case (int)E_PWDAT.PWDAT_PPENCPIN:
                         ret = Interop.PW_iPPGetPIN(index);
                         Debug.Print(string.Format("CALLED iPPGetPIN COM RETORNO {0}", ret.ToString()));
                         if (ret == (int)E_PWRET.PWRET_OK) ret = loopPP();
-                        if (ret == 0) return ret;
-                        break;
+                        return ret;
 
                     case (int)E_PWDAT.PWDAT_PPENTRY:
                         ret = Interop.PW_iPPGetData(index);
                         Debug.Print(string.Format("CALLED iPPGetData COM RETORNO {0}", ret.ToString()));
                         if (ret == (int)E_PWRET.PWRET_OK) ret = loopPP();
-                        if (ret == 0) return ret;
-                        break;
+                        return ret;
 
                     case (int)E_PWDAT.PWDAT_PPREMCRD:
                         ret = Interop.PW_iPPRemoveCard();
                         Debug.Print(string.Format("CALLED iPPRemoveCard COM RETORNO {0}", ret.ToString()));
                         if (ret == (int)E_PWRET.PWRET_OK) ret = loopPP();
-                        if (ret == 0) return ret;
-                        break;
+                        return ret;
 
                     case (int)E_PWDAT.PWDAT_TYPED:
                         ret = getTypedDataFromUser(item);
@@ -289,39 +274,29 @@ namespace PGWLib
             return Interop.PW_iAddParam(expectedData.wIdentificador, value);
         }
 
-        private int loopPP()
+        private int loopPP(int timeout = 0)
         {
-            
-            FormDisplayMessage busyForm = new FormDisplayMessage();
-            bool formOpened = false;
+            FormDisplayMessage fdm = new FormDisplayMessage();
             int ret = 99;
+            int counter = 0;
             do
             {
+                ret = (int)E_PWRET.PWRET_TIMEOUT;
+                if (counter > timeout && timeout > 0) return ret;
+                counter++;
                 Thread.Sleep(200);
                 StringBuilder displayMessage = new StringBuilder(1000);
-                Debug.Print(string.Format("CALLED iPPEventLoop", displayMessage.ToString(), ret.ToString()));
+                //Debug.Print(string.Format("CALLED iPPEventLoop", displayMessage.ToString(), ret.ToString()));
                 ret = Interop.PW_iPPEventLoop(displayMessage, (uint)1000);
-                Debug.Print(string.Format("CALLED iPPEventLoop COM MESSAGE {0} E RETORNO {1}", displayMessage.ToString(), ret.ToString()));
+                //Debug.Print(string.Format("CALLED iPPEventLoop COM MESSAGE {0} E RETORNO {1}", displayMessage.ToString(), ret.ToString()));
 
-                if (ret == (int)E_PWRET.PWRET_DISPLAY)
-                {
-                    if (!formOpened)
-                    {
-                        formOpened = true;
-                        busyForm = new FormDisplayMessage(displayMessage.ToString());
-                        busyForm.Start();
-                    }
-                    else
-                    {
-                        busyForm.ChangeText(displayMessage.ToString());
-                    }
-                    
-                }
+                if (ret == (int)E_PWRET.PWRET_DISPLAY) fdm.Show(displayMessage.ToString());
 
             } while (ret == (int)E_PWRET.PWRET_NOTHING ||
             ret == (int)E_PWRET.PWRET_DISPLAY);
 
-            busyForm.Stop();
+            fdm.Close();
+            fdm.Dispose();
 
             return ret;
         }

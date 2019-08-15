@@ -13,19 +13,5 @@ namespace PDVS
     /// </summary>
     public partial class App : Application
     {
-
-        App()
-        {
-            InitializeComponent();
-        }
-
-        [STAThread]
-        static void Main()
-        {
-            App app = new App();
-            MainWindow window = new MainWindow();
-            app.Run(window);
-        }
-
     }
 }

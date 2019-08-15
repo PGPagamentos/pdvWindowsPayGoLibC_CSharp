@@ -7,19 +7,18 @@
         mc:Ignorable="d"
         WindowStyle="ToolWindow"
         ResizeMode="NoResize"
-        Title="MainWindow" Height="390.167" Width="348.313">
-    <Grid Margin="0">
-        <ComboBox x:Name="cmbOper" Margin="140,14,15.333,0" VerticalAlignment="Top" IsReadOnly="True" SelectionChanged="cmbOper_SelectionChanged"/>
+        Title="MainWindow" Height="386.684" Width="348.313" Topmost="True">
+    <Grid Margin="0,0,4,0" Height="358" VerticalAlignment="Top">
+        <Button x:Name="btnExecute" Content="Executar" Margin="256,312,0,0" Click="btnExecute_Click" Height="31" VerticalAlignment="Top" HorizontalAlignment="Left" Width="67"/>
+        <ComboBox x:Name="cmbOper" Margin="140,14,15.333,0" VerticalAlignment="Top" IsReadOnly="True"/>
         <Label x:Name="LblOper" Content="PWINFO__OPERATION" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="125"/>
-        <ListBox x:Name="lstParameters" Margin="10,72,15.333,56.333" MouseDoubleClick="lstParameters_MouseDoubleClick"/>
+        <ListBox x:Name="lstParameters" Margin="10,72,15,68" MouseDoubleClick="lstParameters_MouseDoubleClick"/>
         <Label x:Name="LblParameters" Content="PARÂMETROS:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnClear" Content="Limpar" HorizontalAlignment="Left"  Margin="10,311,0,0" Width="75" Height="32" Click="btnClear_Click"/>
-        <Button x:Name="btnCaptureWithPinpad" HorizontalAlignment="Left" Margin="130,311,0,0"  Width="75" Height="32" FontSize="9" Click="btnCaptureWithPinpad_Click" >
-            <TextBlock>Capturar dado<LineBreak/>usando PINPad</TextBlock>
-        </Button>
-        <Button x:Name="btnExecute" Content="Executar" Margin="256,310,10.333,0" Height="32" Click="btnExecute_Click"/>
+        <Button x:Name="btnClear" Content="Limpar" HorizontalAlignment="Left" Margin="10,312,0,0" Width="72" Click="btnClear_Click" Height="31" VerticalAlignment="Top"/>
         <Button x:Name="btnAddParam" Content="Adicionar" Margin="251,47,15.333,0" VerticalAlignment="Top" Click="btnAddParam_Click"/>
         <Button x:Name="btnRemove" Content="Remover" Margin="160,47,106.333,0" VerticalAlignment="Top"  Click="btnRemove_Click"/>
-        
+        <Button x:Name="btnCaptureWithPinpad" HorizontalAlignment="Left" Margin="130,312,0,0" VerticalAlignment="Top" Width="75" Height="31" FontSize="9" Click="btnCaptureWithPinpad_Click" >
+            <TextBlock Height="31">Capturar dado<LineBreak/>usando PINPad</TextBlock>
+        </Button>
     </Grid>
 </Window>
