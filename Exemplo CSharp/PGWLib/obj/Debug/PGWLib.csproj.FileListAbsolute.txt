@@ -36,3 +36,13 @@ C:\GitHubVersaoEnumsInterops\PayGoDLLCSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWL
 C:\GitHubVersaoEnumsInterops\PayGoDLLCSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.csproj.CoreCompileInputs.cache
 C:\GitHubVersaoEnumsInterops\PayGoDLLCSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.dll
 C:\GitHubVersaoEnumsInterops\PayGoDLLCSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.pdb
+C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PGWLib\bin\Debug\PGWLib.dll
+C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PGWLib\bin\Debug\PGWLib.pdb
+C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.csprojAssemblyReference.cache
+C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.FormDisplayMessage.resources
+C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.FormMenu.resources
+C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.FormTypedData.resources
+C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.csproj.GenerateResource.cache
+C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.csproj.CoreCompileInputs.cache
+C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.dll
+C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.pdb

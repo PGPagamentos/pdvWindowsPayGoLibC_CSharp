@@ -68,9 +68,10 @@ namespace PDVS
                 MessageBox.Show("Preencha os campos corretamente.");
                 return;
             }
-            executeTransaction();
 
-            confirmUndoTransaction(getTransactionResult());
+            int ret = executeTransaction();
+
+            confirmUndoTransaction(getTransactionResult(),ret);
 
         }
 
@@ -133,7 +134,7 @@ namespace PDVS
             return true;
         }
 
-        private void executeTransaction()
+        private int executeTransaction()
         {
             E_PWOPER operation = (E_PWOPER)Enum.Parse(typeof(E_PWOPER), cmbOper.SelectedValue.ToString());
 
@@ -141,8 +142,25 @@ namespace PDVS
             int ret = eft.startTransaction(operation, lstParameters.Items.Cast<PW_Parameter>().ToList());
             if (ret != 0)
             {
-                MessageBox.Show(string.Format("Erro ao executar a transação: {0}{1}{2}", ret, Environment.NewLine, ((E_PWRET)ret).ToString()));
+                string sError = ((E_PWRET)ret).ToString();
+                int iError = ret;
+
+                // verifica se deu erro de transacao anterior pendente
+                if (ret == (int)E_PWRET.PWRET_FROMHOSTPENDTRN)
+                {
+                    // confirma a transacao que estava pendente
+                    
+                    E_PWCNF transactionStatus = E_PWCNF.PWCNF_REV_AUTO_ABORT;
+                    ret = eft.confirmPendTransaction(transactionStatus, getTransactionResult());
+                    MessageBox.Show(string.Format("Erro ao executar a transação: {0}{1}{2}{3}{4}", iError, Environment.NewLine, sError, Environment.NewLine,
+                                                   ">> TRANSACAO PENDENTE RESOLVIDA <<"));
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("Erro ao executar a transação: {0}{1}{2}", iError, Environment.NewLine, sError));                
+                }
             }
+            return ret;
         }
 
         private List<PW_Parameter> getTransactionResult()
@@ -158,7 +176,7 @@ namespace PDVS
 
         }
 
-        private int confirmUndoTransaction(List<PW_Parameter> transactionResult)
+        private int confirmUndoTransaction(List<PW_Parameter> transactionResult,int RetTransaction)
         {
             int ret = 0;
 
@@ -166,10 +184,18 @@ namespace PDVS
             {
                 if(item.parameterCode == (uint)E_PWINFO.PWINFO_CNFREQ & item.parameterValue == "1")
                 {
-                    ConfirmationWindow cw = new ConfirmationWindow();
-                    E_PWCNF transactionStatus = E_PWCNF.PWCNF_REV_AUTO_ABORT;
-                    cw.ShowDialog(ref transactionStatus);
-                    ret = eft.confirmUndoTransaction(transactionStatus, transactionResult);
+                    if (RetTransaction == (int)E_PWRET.PWRET_FROMHOSTPENDTRN)
+                    {
+                        E_PWCNF transactionStatus = E_PWCNF.PWCNF_REV_AUTO_ABORT;
+                        ret = eft.confirmPendTransaction(transactionStatus, transactionResult);
+                    }
+                    else
+                    {
+                        ConfirmationWindow cw = new ConfirmationWindow();
+                        E_PWCNF transactionStatus = E_PWCNF.PWCNF_REV_AUTO_ABORT;
+                        cw.ShowDialog(ref transactionStatus);
+                        ret = eft.confirmUndoTransaction(transactionStatus, transactionResult);
+                    }
                 }
             }
 

@@ -105,11 +105,58 @@ namespace PGWLib
             }
 
             ret = Interop.PW_iConfirmation((uint)transactionStatus, pszReqNum, pszLocRef, pszLocRef, pszVirtMerch, pszAuthSyst);
+            Debug.Print(string.Format("Confirma Transacao : ret={0},ReqNum = {1}, LocRef = {2}, ExtRef = {3}, VirtMerch = {4}, AuthSyst = {5}",
+                                                              ret.ToString(), pszReqNum, pszLocRef, pszExtRef, pszVirtMerch, pszAuthSyst));
+            return ret;
+        }
+         
+        public int confirmPendTransaction(E_PWCNF transactionStatus, List<PW_Parameter> transactionResponse)
+        {
+            int ret = 99;
 
+            string pszReqNum = string.Empty;
+            string pszLocRef = string.Empty;
+            string pszExtRef = string.Empty;
+            string pszVirtMerch = string.Empty;
+            string pszAuthSyst = string.Empty;
+
+            foreach (PW_Parameter item in transactionResponse)
+            {
+                switch (item.parameterCode)
+                {
+                    case (ushort)E_PWINFO.PWINFO_PNDREQNUM:
+                        pszReqNum = item.parameterValue;
+                        break;
+
+                    case (ushort)E_PWINFO.PWINFO_PNDAUTLOCREF:
+                        pszLocRef = item.parameterValue;
+                        break;
+
+                    case (ushort)E_PWINFO.PWINFO_PNDAUTEXTREF:
+                        pszExtRef = item.parameterValue;
+                        break;
+
+                    case (ushort)E_PWINFO.PWINFO_PNDVIRTMERCH:
+                        pszVirtMerch = item.parameterValue;
+                        break;
+
+                    case (ushort)E_PWINFO.PWINFO_PNDAUTHSYST:
+                        pszAuthSyst = item.parameterValue;
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            
+            ret = Interop.PW_iConfirmation((uint)transactionStatus, pszReqNum, pszLocRef, pszLocRef, pszVirtMerch, pszAuthSyst);
+            Debug.Print(string.Format("Confirma Transacao Pendente ret={0},ReqNum = {1}, LocRef = {2}, ExtRef = {3}, VirtMerch = {4}, AuthSyst = {5}", 
+                                                              ret.ToString(),pszReqNum , pszLocRef, pszExtRef, pszVirtMerch, pszAuthSyst));
             return ret;
         }
 
-        public int getInputFromPP(ref string userTypedValue, E_PWUserDataMessages messageToDisplay, int minLength, int MaxLength, int timeout = 30){
+        public int getInputFromPP(ref string userTypedValue, E_PWUserDataMessages messageToDisplay, int minLength, int MaxLength, int timeout = 30)
+        {
 
             StringBuilder value = new StringBuilder(10000);
             short ret = 0;
@@ -159,8 +206,9 @@ namespace PGWLib
             {
                 PW_GetData[] structParam = new PW_GetData[10];
                 short paramAmount = 10;
-                ret = Interop.PW_iExecTransac(structParam, ref paramAmount);
+                ret = (int)Interop.PW_iExecTransac(structParam, ref paramAmount);
                 Debug.Print(string.Format("CALLED iExecTransac COM RETORNO {0}", ret.ToString()));
+                /* teste de confirmacao @@@@
                 switch (ret)
                 {
                     case (int)E_PWRET.PWRET_MOREDATA:
@@ -170,6 +218,30 @@ namespace PGWLib
                     default:
                         return ret;
                 }
+                */
+                if (ret == (int)E_PWRET.PWRET_MOREDATA)
+                {
+                    int ret2 = showCorrespondingWindow(structParam);
+                    if (ret2 != (int)E_PWRET.PWRET_OK) 
+                    return ret2;
+
+                }
+                else
+                {
+                    return ret;
+                    // if (ret == (int)E_PWRET.PWRET_FROMHOSTPENDTRN)
+                    // {
+                    // Busca Parametros da Transação Pendente
+                    //GetParamPendenteConfirma();
+                    // } 
+                    // else
+                    // {
+                    // Busca Parametros da Transação Atual
+                    //GetParamConfirma();
+                    // }
+                }
+            
+
             }
             
             return ret;

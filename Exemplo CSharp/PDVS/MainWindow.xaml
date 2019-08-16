@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStyle="ToolWindow"
         ResizeMode="NoResize"
-        Title="MainWindow" Height="386.684" Width="348.313" Topmost="True">
+        Title="MainWindow" Height="386.684" Width="348.313" >
     <Grid Margin="0,0,4,0" Height="358" VerticalAlignment="Top">
         <Button x:Name="btnExecute" Content="Executar" Margin="256,312,0,0" Click="btnExecute_Click" Height="31" VerticalAlignment="Top" HorizontalAlignment="Left" Width="67"/>
         <ComboBox x:Name="cmbOper" Margin="140,14,15.333,0" VerticalAlignment="Top" IsReadOnly="True"/>
