@@ -377,8 +377,22 @@ namespace PGWLib
         {
             bool userAborted = false;
             string value = string.Empty;
-            FormTypedData window = new FormTypedData(expectedData);
-            window.ShowDialog(ref userAborted, ref value);
+
+            ///////////////////////////////////////////////////////
+            // verificacar se é mascara de dinheiro
+            if (expectedData.szMascaraDeCaptura == "R$@.@@@.@@@,@@")
+            {
+                FormCurrencyData window = new FormCurrencyData(expectedData);
+                window.ShowDialog(ref userAborted, ref value);
+            }
+            else
+            {
+                ///////////////////////////////////////////////////////
+                // se não é mascara de dinheiro
+                // -->> FormTypedData
+                FormTypedData window = new FormTypedData(expectedData);
+                window.ShowDialog(ref userAborted, ref value);
+            }
 
             if (userAborted) return (int)E_PWRET.PWRET_CANCEL;
 

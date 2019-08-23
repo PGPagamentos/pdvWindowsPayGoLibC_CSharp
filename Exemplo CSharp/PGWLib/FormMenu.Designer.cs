@@ -37,8 +37,9 @@
             this.LblHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.LblHeader.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblHeader.Location = new System.Drawing.Point(0, 0);
+            this.LblHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblHeader.Name = "LblHeader";
-            this.LblHeader.Size = new System.Drawing.Size(603, 38);
+            this.LblHeader.Size = new System.Drawing.Size(402, 25);
             this.LblHeader.TabIndex = 0;
             this.LblHeader.Text = "MENU PRINCIPAL";
             this.LblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -47,22 +48,25 @@
             // 
             this.LstMenu.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LstMenu.FormattingEnabled = true;
-            this.LstMenu.ItemHeight = 38;
-            this.LstMenu.Location = new System.Drawing.Point(12, 59);
+            this.LstMenu.ItemHeight = 25;
+            this.LstMenu.Location = new System.Drawing.Point(8, 38);
+            this.LstMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.LstMenu.Name = "LstMenu";
-            this.LstMenu.Size = new System.Drawing.Size(579, 346);
+            this.LstMenu.Size = new System.Drawing.Size(387, 204);
             this.LstMenu.TabIndex = 1;
             this.LstMenu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LstMenu_MouseClick);
+            this.LstMenu.SelectedIndexChanged += new System.EventHandler(this.LstMenu_SelectedIndexChanged);
             this.LstMenu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyPressed);
             // 
             // FormMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 440);
+            this.ClientSize = new System.Drawing.Size(402, 286);
             this.Controls.Add(this.LstMenu);
             this.Controls.Add(this.LblHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormMenu";

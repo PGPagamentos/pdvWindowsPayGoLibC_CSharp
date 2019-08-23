@@ -83,6 +83,10 @@ namespace PGWLib
             BeginInvoke((Action)delegate { this.LblMessage.Text = newText; });
         }
 
+        private void LblMessage_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

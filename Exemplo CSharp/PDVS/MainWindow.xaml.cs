@@ -21,6 +21,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 using static PGWLib.CustomObjects;
 using static PGWLib.Enums;
 
@@ -169,9 +170,9 @@ namespace PDVS
             
             ret = eft.getTransactionResult();
 
-            ResultWindow rw = new ResultWindow(ret);
-            rw.Show();
-
+            //ResultWindow rw = new ResultWindow(ret);
+            //rw.Show();
+            LogDLL(ret);
             return ret;
 
         }
@@ -229,6 +230,64 @@ namespace PDVS
                 MessageBox.Show(string.Format("Dado capturado no PINPad: {0}{1}", Environment.NewLine, userTypedValue));
 
             }
+        }
+
+        /////////////////////////////////////////////////////
+        // Método utlizado para logar o retorno da execução 
+        // das funções da DLL Pay Go
+        public void LogDLL(List<PW_Parameter> result)
+        {
+            InitializeComponent();
+
+            foreach (PW_Parameter item in result)
+            {
+                // se é recibo quebra linha por linha e insere no listbox
+                // para resolver bug de scroll dos recibos.
+                if ((item.parameterCode == (ushort)E_PWINFO.PWINFO_RCPTCHOLDER) ||
+                     (item.parameterCode == (ushort)E_PWINFO.PWINFO_RCPTCHSHORT) ||
+                     (item.parameterCode == (ushort)E_PWINFO.PWINFO_RCPTFULL) ||
+                     (item.parameterCode == (ushort)E_PWINFO.PWINFO_RCPTMERCH) ||
+                     (item.parameterCode == (ushort)E_PWINFO.PWINFO_RCPTPRN)
+                   )
+                {
+
+                   
+                    string _input = item.ToString(); 
+                    ////////////////////////////
+                    using (StringReader reader = new StringReader(_input))
+                    {
+                        // Loop over the lines in the string.
+                        //int count = 0;
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            //count++;
+                            //Console.WriteLine("Line {0}: {1}", count, line);
+                            listBox.Items.Add(line);
+                        }
+                    }
+
+                    //////////////////////////////
+                }
+                else
+                {
+                    listBox.Items.Add(item.ToString());
+                }
+            }
+        }
+        private void Frame_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
+
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void listBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }

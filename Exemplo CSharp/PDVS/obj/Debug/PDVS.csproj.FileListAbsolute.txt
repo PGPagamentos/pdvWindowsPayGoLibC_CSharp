@@ -169,7 +169,6 @@ C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PDVS\obj\Debug\SelectUserDataMessag
 C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PDVS\obj\Debug\AddParamWindow.g.cs
 C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PDVS\obj\Debug\ConfirmationWindow.g.cs
 C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PDVS\obj\Debug\MainWindow.g.cs
-C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PDVS\obj\Debug\ResultWindow.g.cs
 C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PDVS\obj\Debug\App.g.cs
 C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PDVS\obj\Debug\PDVS_MarkupCompile.cache
 C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PDVS\obj\Debug\PDVS_MarkupCompile.lref
@@ -177,7 +176,6 @@ C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PDVS\obj\Debug\SelectUserDataMessag
 C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PDVS\obj\Debug\AddParamWindow.baml
 C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PDVS\obj\Debug\ConfirmationWindow.baml
 C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PDVS\obj\Debug\MainWindow.baml
-C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PDVS\obj\Debug\ResultWindow.baml
 C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PDVS\obj\Debug\PDVS.g.resources
 C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PDVS\obj\Debug\PDVS.Properties.Resources.resources
 C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PDVS\obj\Debug\PDVS.csproj.GenerateResource.cache

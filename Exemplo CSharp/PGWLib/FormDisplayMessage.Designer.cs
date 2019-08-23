@@ -42,6 +42,7 @@
             this.LblMessage.TabIndex = 0;
             this.LblMessage.Text = "label1";
             this.LblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblMessage.Click += new System.EventHandler(this.LblMessage_Click);
             // 
             // FormDisplayMessage
             // 
@@ -50,7 +51,7 @@
             this.ClientSize = new System.Drawing.Size(493, 267);
             this.Controls.Add(this.LblMessage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormDisplayMessage";

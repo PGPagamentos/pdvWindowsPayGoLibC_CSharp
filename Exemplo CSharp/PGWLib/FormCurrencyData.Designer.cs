@@ -1,6 +1,6 @@
-﻿ namespace PGWLib
+﻿namespace PGWLib
 {
-    partial class FormTypedData
+    partial class FormCurrencyData
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.LblHeader = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.txtValue = new System.Windows.Forms.MaskedTextBox();
+            this.txtValue = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnOK
@@ -73,21 +73,21 @@
             // 
             // txtValue
             // 
-            this.txtValue.Font = new System.Drawing.Font("Verdana", 16F);
-            this.txtValue.Location = new System.Drawing.Point(8, 73);
-            this.txtValue.Margin = new System.Windows.Forms.Padding(2);
+            this.txtValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValue.Location = new System.Drawing.Point(12, 71);
             this.txtValue.Name = "txtValue";
-            this.txtValue.Size = new System.Drawing.Size(521, 33);
-            this.txtValue.TabIndex = 0;
-            this.txtValue.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.txtValue.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtValue_MaskInputRejected);
+            this.txtValue.Size = new System.Drawing.Size(515, 26);
+            this.txtValue.TabIndex = 3;
+            //this.txtValue.TextChanged += new System.EventHandler(this.txtValue_TextChanged);
+            this.txtValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValue_KeyPress);
+            this.txtValue.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtValue_KeyUp);
+            this.txtValue.Leave += new System.EventHandler(this.txtValue_Leave);
             // 
-            // FormTypedData
+            // FormCurrencyData
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(535, 205);
             this.Controls.Add(this.txtValue);
             this.Controls.Add(this.btnCancel);
@@ -97,12 +97,12 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormTypedData";
+            this.Name = "FormCurrencyData";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Insira a informação solicitada";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.FormTypedData_Load);
+            //this.Load += new System.EventHandler(this.FormCurrencyData_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,6 +113,6 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Label LblHeader;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.MaskedTextBox txtValue;
+        private System.Windows.Forms.TextBox txtValue;
     }
 }

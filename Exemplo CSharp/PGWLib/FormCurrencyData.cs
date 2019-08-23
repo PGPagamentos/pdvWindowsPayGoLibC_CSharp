@@ -12,13 +12,17 @@ using static PGWLib.Enums;
 
 namespace PGWLib
 {
-    public partial class FormTypedData : Form
+    /////////////////////////////////////////////////
+    // Form criado para entrada de valores em dinheiro
+    // 
+    public partial class FormCurrencyData : Form
     {
         bool userAborted = false;
         PW_GetData _expectedData;
         private static Timer _timer = new Timer();
+        string valorDinheiro;
 
-        public FormTypedData(PW_GetData expectedData)
+        public FormCurrencyData(PW_GetData expectedData)
         {
             InitializeComponent();
 
@@ -39,14 +43,14 @@ namespace PGWLib
             if (expectedData.ulValorMaximo > 0) txtValue.MaxLength = expectedData.ulValorMaximo;
 
             //Define se o dado deve ser mascarado
-            if (expectedData.szMascaraDeCaptura != "") txtValue.Mask = expectedData.szMascaraDeCaptura.Replace("@","C");
+            //if (expectedData.szMascaraDeCaptura != "") txtValue.Mask = expectedData.szMascaraDeCaptura.Replace("@","C");
 
             //Cursor deve se mover da esquerda para direita ou ao contrário?
             //if (expectedData.bIniciaPelaEsquerda == 1)
             //{
             //    txtValue.RightToLeft = RightToLeft.No;
             //}
-            // else
+            //else
             //{
             //    txtValue.RightToLeft = RightToLeft.Yes;
             //}
@@ -79,23 +83,75 @@ namespace PGWLib
             this.ShowDialog();
 
             abort = userAborted;
-            value = txtValue.Text.Trim();
+            //value = txtValue.Text.Trim();
+            valorDinheiro = valorDinheiro.Trim();
+            value = valorDinheiro.Replace(",", "");
+            value = value.Replace(".", "");
+           
         }
 
-        private void FormTypedData_Load(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void TimerTick(object sender, EventArgs e)
         {
             this.Activate();
             txtValue.Focus();
         }
 
-        private void txtValue_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+       
+        private void txtValue_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                if (e.KeyChar == ',')
+                {
+                    e.Handled = (txtValue.Text.Contains(","));
+                }
+                else
+                    e.Handled = true;
+            }
+        }
 
+        /////////////////////////////////////////////////////////////
+        // Método utilizado para formatar o valor durante a digitação
+        private void txtValue_KeyUp(object sender, KeyEventArgs e)
+        {
+            valorDinheiro = txtValue.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valorDinheiro.Length == 0)
+            {
+                txtValue.Text = "0,00" + valorDinheiro;
+            }
+            if (valorDinheiro.Length == 1)
+            {
+                txtValue.Text = "0,0" + valorDinheiro;
+            }
+            if (valorDinheiro.Length == 2)
+            {
+                txtValue.Text = "0," + valorDinheiro;
+            }
+            else if (valorDinheiro.Length >= 3)
+            {
+                if (txtValue.Text.StartsWith("0,"))
+                {
+                    txtValue.Text = valorDinheiro.Insert(valorDinheiro.Length - 2, ",").Replace("0,", "");
+                }
+                else if (txtValue.Text.Contains("00,"))
+                {
+                    txtValue.Text = valorDinheiro.Insert(valorDinheiro.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    txtValue.Text = valorDinheiro.Insert(valorDinheiro.Length - 2, ",");
+                }
+            }
+            valorDinheiro = txtValue.Text;
+            txtValue.Text = string.Format("{0:C}", Convert.ToDouble(valorDinheiro));
+            txtValue.Select(txtValue.Text.Length, 0);
+        }
+
+        private void txtValue_Leave(object sender, EventArgs e)
+        {
+            valorDinheiro = txtValue.Text.Replace("R$", "");
+            txtValue.Text = string.Format("{0:C}", Convert.ToDouble(valorDinheiro));
         }
     }
 }

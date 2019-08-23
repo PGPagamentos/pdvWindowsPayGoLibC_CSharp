@@ -182,5 +182,10 @@ namespace PGWLib
         {
             LstMenu.SelectedIndex = -1;
         }
+
+        private void LstMenu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
