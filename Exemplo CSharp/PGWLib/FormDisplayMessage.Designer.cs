@@ -40,9 +40,7 @@
             this.LblMessage.Name = "LblMessage";
             this.LblMessage.Size = new System.Drawing.Size(493, 267);
             this.LblMessage.TabIndex = 0;
-            this.LblMessage.Text = "label1";
             this.LblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LblMessage.Click += new System.EventHandler(this.LblMessage_Click);
             // 
             // FormDisplayMessage
             // 
@@ -59,7 +57,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDisplayMessage";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.FormDisplayMessage_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormDisplayMessage_KeyUp);
             this.ResumeLayout(false);
 
         }

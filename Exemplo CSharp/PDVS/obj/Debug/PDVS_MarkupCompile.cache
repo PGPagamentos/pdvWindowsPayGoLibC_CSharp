@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PDVS\obj\Debug\
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\obj\Debug\
 PDVS
 none
 false
 DEBUG;TRACE
-C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PDVS\App.xaml
-41980443791
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PDVS\App.xaml
+5-1656073172
 
-81466824831
-15-771876532
-SelectUserDataMessageWindow.xaml;AddParamWindow.xaml;ConfirmationWindow.xaml;MainWindow.xaml;
+10-1118914856
+15-1095961371
+TypeDisplayMessageWindow.xaml;SelectUserDataMessageWindow.xaml;AddParamWindow.xaml;ConfirmationWindow.xaml;MainWindow.xaml;
 
-False
+True
 

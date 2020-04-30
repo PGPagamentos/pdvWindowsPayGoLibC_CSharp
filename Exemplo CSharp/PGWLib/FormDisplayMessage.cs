@@ -12,59 +12,16 @@ namespace PGWLib
 {
     public partial class FormDisplayMessage : Form
     {
-        int _timeout = 0;
-        private static Timer _timer = new Timer();
+        Timer timer;
+        bool _userAborted;
 
-
-        public FormDisplayMessage(string message = "")
+        public FormDisplayMessage()
         {
             InitializeComponent();
-
-            LblMessage.Text = message;
-
-            _timer.Tick += TimerTick;
+            _userAborted = false;
         }
 
-        private void TimerTick(object sender, EventArgs e)
-        {
-                this.Close();
-            }
-
-        public void Show(string message, int timeout = 30000)
-        {
-            if(string.IsNullOrEmpty(message))
-            {
-                this.Close();
-                return;
-            }
-            LblMessage.Text = message;
-            _timeout = timeout;
-
-            this.Show();
-        }
-
-        public void ShowDialog(string message, int timeout = 30000)
-        {
-            if (string.IsNullOrEmpty(message))
-            {
-                this.Close();
-                return;
-            }
-            LblMessage.Text = message;
-            _timeout = timeout;
-
-            this.ShowDialog();
-        }
-
-        private void FormDisplayMessage_Load(object sender, EventArgs e)
-        {
-            if (_timeout != 0)
-            {
-                _timer.Interval = _timeout;
-                _timer.Start();
-            }
-        }
-
+        // Inicia a exibição da janela de mensagens no modo permamente
         public void Start()
         {
             Task.Factory.StartNew(() =>
@@ -73,20 +30,94 @@ namespace PGWLib
             });
         }
 
+        // Para a exibição da janela de mensagens no modo permanente
         public void Stop()
         {
-            BeginInvoke((Action)delegate { this.Close(); });
+            if (this.InvokeRequired)
+            {
+                Invoke((Action)delegate
+                {
+                    this.Close();
+                });
+            }
+            else
+            {
+                if (this.IsDisposed)
+                    throw new ObjectDisposedException("Control is already disposed.");
+                else
+                {
+                    this.Close();
+                }
+            }
         }
 
+        // Atualiza o texto exibido da janela de mensagens no modo permanente
         public void ChangeText(string newText)
         {
-            BeginInvoke((Action)delegate { this.LblMessage.Text = newText; });
+            if (this.InvokeRequired)
+            {
+                Invoke((Action)delegate
+                {
+                    // Atribui o valor do prompt a ser exibido, substituindo a quebra de linha utilizada
+                    // pela biblioteca pela quebra de linha utilizada nos forms
+                    this.LblMessage.Text = newText.Replace("\r", "\n");
+                    this.Focus();
+                });
+            }
+            else
+            {
+                if (this.IsDisposed)
+                    throw new ObjectDisposedException("Control is already disposed.");
+                else
+                {
+                    // Atribui o valor do prompt a ser exibido, substituindo a quebra de linha utilizada
+                    // pela biblioteca pela quebra de linha utilizada nos forms
+                    this.LblMessage.Text = newText.Replace("\r", "\n");
+                    this.Focus();
+                }
+            }
         }
 
-        private void LblMessage_Click(object sender, EventArgs e)
+        // Exibe a janela de mensagem com timeout
+        public void ShowDialog(string message, int timeout)
         {
+            // Caso não tenha mensagem, retorna
+            if (message == "")
+                return;
 
+            // Atribui o valor do prompt a ser exibido, substituindo a quebra de linha utilizada
+            // pela biblioteca pela quebra de linha utilizada nos forms
+            this.LblMessage.Text = message.Replace("\r", "\n");
+
+            // Define ume timeout para fechamento automatico da janela
+            timer = new Timer();
+            timer.Interval = timeout;
+            timer.Tick += Timer_Tick;          
+            timer.Start();
+            this.ShowDialog();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            timer.Dispose();
+            this.Close();
+        }
+
+        // Caso o operador pressione a tecla ESC para abortar a operação
+        private void FormDisplayMessage_KeyUp(object sender, KeyEventArgs e)
+        {
+            // ESC pressionado, operação abortada
+            if (e.KeyCode == Keys.Escape)
+            {
+                _userAborted = true;
+                this.Close();
+            }
+        }
+
+        // Checa se a tecla ESC foi pressionada
+        public bool isAborted()
+        {
+            return _userAborted;
         }
     }
-
 }

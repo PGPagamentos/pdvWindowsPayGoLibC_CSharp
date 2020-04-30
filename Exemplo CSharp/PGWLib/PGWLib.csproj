@@ -58,12 +58,6 @@
     <Compile Include="FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCurrencyData.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormCurrencyData.Designer.cs">
-      <DependentUpon>FormCurrencyData.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormTypedData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,9 +74,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormCurrencyData.resx">
-      <DependentUpon>FormCurrencyData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTypedData.resx">
       <DependentUpon>FormTypedData.cs</DependentUpon>

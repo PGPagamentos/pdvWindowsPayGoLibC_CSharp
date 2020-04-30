@@ -46,3 +46,13 @@ C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.csproj.Gene
 C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.csproj.CoreCompileInputs.cache
 C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.dll
 C:\GitHubPayGo\PayGoDLLCSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.pdb
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\bin\Debug\PGWLib.dll
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\bin\Debug\PGWLib.pdb
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.FormDisplayMessage.resources
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.FormMenu.resources
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.FormTypedData.resources
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.csproj.GenerateResource.cache
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.csproj.CoreCompileInputs.cache
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.dll
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.pdb
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.csprojAssemblyReference.cache

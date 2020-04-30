@@ -1,0 +1,17 @@
+﻿<Window x:Class="PDVS.TypeDisplayMessageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PDVS"
+        mc:Ignorable="d"
+        Title="TypeDisplayMessageWindow" Height="174.392" Width="230.28" Topmost="True" WindowStyle="ToolWindow">
+    <Grid Margin="0,0,0,33">
+        <Button x:Name="btnOK" Content="OK" HorizontalAlignment="Left" Margin="81,89,0,-18" VerticalAlignment="Top" Width="75" Click="btnOK_Click"/>
+        <Label x:Name="lblLine1" Content="LINHA 1:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblLine2" Content="LINHA 2:" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb1" HorizontalAlignment="Left" Height="23" Margin="81,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111" MaxLength="16" MaxLines="1"/>
+        <TextBox x:Name="tb2" HorizontalAlignment="Left" Height="23" Margin="81,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111" MaxLength="16" MaxLines="1"/>
+
+    </Grid>
+</Window>

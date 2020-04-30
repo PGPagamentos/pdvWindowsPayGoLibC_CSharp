@@ -7,3 +7,13 @@ C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\obj\Release\PGWLib.csproj.Genera
 C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\obj\Release\PGWLib.dll
 C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\obj\Release\PGWLib.pdb
 C:\Users\santos.thiago\Dropbox\VBPs\PDVS\PGWLib\obj\Release\PGWLib.csprojResolveAssemblyReference.cache
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\bin\Release\PGWLib.dll
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\bin\Release\PGWLib.pdb
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Release\PGWLib.csprojAssemblyReference.cache
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Release\PGWLib.FormDisplayMessage.resources
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Release\PGWLib.FormMenu.resources
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Release\PGWLib.FormTypedData.resources
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Release\PGWLib.csproj.GenerateResource.cache
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Release\PGWLib.csproj.CoreCompileInputs.cache
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Release\PGWLib.dll
+D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Release\PGWLib.pdb
