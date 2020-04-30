@@ -22,7 +22,8 @@ namespace PDVS
     {
         public TypeDisplayMessageWindow()
         {
-            InitializeComponent();        
+            InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         public bool ShowDialog(ref string message)

@@ -51,6 +51,8 @@ namespace PDVS
             cmbOper.SelectedItem = E_PWOPER.PWOPER_SALE.ToString();
 
             AddMandatoryParameters();
+
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         // Adiciona um novo parâmetro antes do início da transação
@@ -89,7 +91,7 @@ namespace PDVS
 
             if (!ValidateFields())
             {
-                MessageBox.Show("Preencha os campos corretamente.");
+                MessageBox.Show(this, "Preencha os campos corretamente.");
                 return;
             }
 
@@ -117,11 +119,11 @@ namespace PDVS
                 int ret = eft.GetInputFromPP(ref userTypedValue, message, minLength, maxLength);
                 if (ret != 0)
                 {
-                    MessageBox.Show(string.Format("Erro ao executar a captura de dado no PINPad: {0}{1}{2}", ret, Environment.NewLine, ((E_PWRET)ret).ToString()));
+                    MessageBox.Show(this, string.Format("Erro ao executar a captura de dado no PINPad: {0}{1}{2}", ret, Environment.NewLine, ((E_PWRET)ret).ToString()));
                     return;
                 }
 
-                MessageBox.Show(string.Format("Dado capturado no PINPad: {0}{1}", Environment.NewLine, userTypedValue));
+                MessageBox.Show(this, string.Format("Dado capturado no PINPad: {0}{1}", Environment.NewLine, userTypedValue));
 
             }
         }
@@ -140,12 +142,12 @@ namespace PDVS
                 int ret = eft.DisplayOnPP(message);
                 if (ret != 0)
                 {
-                    MessageBox.Show(string.Format("Erro ao exibir mensagem no PINPad: {0}{1}{2}",
+                    MessageBox.Show(this, string.Format("Erro ao exibir mensagem no PINPad: {0}{1}{2}",
                         ret, Environment.NewLine, ((E_PWRET)ret).ToString()));
                     return;
                 }
 
-                MessageBox.Show(string.Format("Mensagem exibida !!!"));
+                MessageBox.Show(this, string.Format("Mensagem exibida !!!"));
             }
         }
 
@@ -162,12 +164,12 @@ namespace PDVS
                 " DIGITE A SENHA " + "   NO PINPAD    ", ref cripto);
             if (ret != 0)
             {
-                MessageBox.Show(string.Format("Erro ao executar a captura no PINPad: {0}{1}{2}",
+                MessageBox.Show(this, string.Format("Erro ao executar a captura no PINPad: {0}{1}{2}",
                     ret, Environment.NewLine, ((E_PWRET)ret).ToString()));
                 return;
             }
 
-            MessageBox.Show(string.Format("Criptograma da senha digitada: {0}", cripto));
+            MessageBox.Show(this, string.Format("Criptograma da senha digitada: {0}", cripto));
         }
 
         // Aguarda qualquer evento que ocorra no PIN-pad
@@ -181,7 +183,7 @@ namespace PDVS
             eventoSaida = eft.WaitEventOnPP(eventoEntrada);
             if (eventoSaida != E_PWPPEVT.PWPPEVT_NONE)
             {
-                MessageBox.Show(string.Format("Evento acionado={0}", eventoSaida.ToString()));
+                MessageBox.Show(this, string.Format("Evento acionado={0}", eventoSaida.ToString()));
                 return;
             }
         }
@@ -238,7 +240,7 @@ namespace PDVS
                 {
                     if (item.parameterName == parameterObject.parameterName && itemPosition == -1)
                     {
-                        MessageBox.Show("Você não pode inserir duas vezes o mesmo parâmetro");
+                        MessageBox.Show(this, "Você não pode inserir duas vezes o mesmo parâmetro");
                         return;
                     }
                 }
@@ -289,7 +291,7 @@ namespace PDVS
 
             // Exibe a mensagem de resultado, substituindo a quebra de linha utilizada
             // pela biblioteca pela quebra de linha utilizada na janela
-            MessageBox.Show(resultMessage.Replace("\r", "\n"));
+            MessageBox.Show(this, resultMessage.Replace("\r", "\n"));
 
             // Transação com erro
             if (ret != 0)
@@ -313,7 +315,7 @@ namespace PDVS
                     autExtRef = paramList.Find(item => item.parameterCode == (ushort)E_PWINFO.PWINFO_PNDAUTEXTREF);
 
                     // Exibe uma mensagem identificando a transação que está pendente
-                    MessageBox.Show(string.Format("Existe uma transação pendente:\n" +
+                    MessageBox.Show(this, string.Format("Existe uma transação pendente:\n" +
                         "PNDAUTHSYST={0}\n" +
                         "NDVIRTMERCH={1}\n" +
                         "PNDREQNUM={2}\n" +

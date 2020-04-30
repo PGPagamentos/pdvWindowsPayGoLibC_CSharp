@@ -60,7 +60,8 @@ namespace PGWLib
                 {
                     // Atribui o valor do prompt a ser exibido, substituindo a quebra de linha utilizada
                     // pela biblioteca pela quebra de linha utilizada nos forms
-                    this.LblMessage.Text = newText.Replace("\r", "\n");
+                    // Remove a centralização vertical para melhor adaptação da mensagem na janela
+                    this.LblMessage.Text = newText.TrimStart('\r').Replace("\r", "\n");
                     this.Focus();
                 });
             }
@@ -72,7 +73,8 @@ namespace PGWLib
                 {
                     // Atribui o valor do prompt a ser exibido, substituindo a quebra de linha utilizada
                     // pela biblioteca pela quebra de linha utilizada nos forms
-                    this.LblMessage.Text = newText.Replace("\r", "\n");
+                    // Remove a centralização vertical para melhor adaptação da mensagem na janela
+                    this.LblMessage.Text = newText.TrimStart('\r').Replace("\r", "\n");
                     this.Focus();
                 }
             }

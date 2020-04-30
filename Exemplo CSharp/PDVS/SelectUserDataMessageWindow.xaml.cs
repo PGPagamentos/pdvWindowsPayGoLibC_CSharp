@@ -27,7 +27,7 @@ namespace PDVS
             {
                 cmbParam.Items.Add(item);
             }
-
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         public void ShowDialog(ref string param, ref short min, ref short max)

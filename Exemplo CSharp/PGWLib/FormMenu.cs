@@ -54,7 +54,7 @@ namespace PGWLib
             {
                 if (_expectedData.bTeclasDeAtalho == 1 && b < 10)
                 {
-                    LstMenu.Items.Add(string.Format("{0} - {1}", b, _expectedData.vszTextoMenu[b].szTextoMenu));
+                    LstMenu.Items.Add(string.Format("{0}-{1}", b, _expectedData.vszTextoMenu[b].szTextoMenu));
                 }
                 else
                 {
