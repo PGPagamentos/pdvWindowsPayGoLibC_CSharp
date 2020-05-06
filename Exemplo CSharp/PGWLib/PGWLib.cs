@@ -577,6 +577,14 @@ namespace PGWLib
                             ret = LoopPP();
                         return ret;
 
+                    // Comando genérico no PIN-pad
+                    case (int)E_PWDAT.PWDAT_PPGENCMD:
+                        ret = Interop.PW_iPPGenericCMD(index);
+                        Debug.Print(string.Format("PW_iPPGenericCMD={0}", ret.ToString()));
+                        if (ret == (int)E_PWRET.PWRET_OK)
+                            ret = LoopPP();
+                        return ret;
+
                     // Senha do portador
                     case (int)E_PWDAT.PWDAT_PPENCPIN:
                         ret = Interop.PW_iPPGetPIN(index);
