@@ -569,6 +569,14 @@ namespace PGWLib
                             ret = LoopPP();
                         return ret;
 
+                    // Confirmação positiva PIN-pad
+                    case (int)E_PWDAT.PWDAT_PPDATAPOSCNF:
+                        ret = Interop.PW_iPPPositiveConfirmation(index);
+                        Debug.Print(string.Format("PW_iPPPositiveConfirmation={0}", ret.ToString()));
+                        if (ret == (int)E_PWRET.PWRET_OK)
+                            ret = LoopPP();
+                        return ret;
+
                     // Senha do portador
                     case (int)E_PWDAT.PWDAT_PPENCPIN:
                         ret = Interop.PW_iPPGetPIN(index);
