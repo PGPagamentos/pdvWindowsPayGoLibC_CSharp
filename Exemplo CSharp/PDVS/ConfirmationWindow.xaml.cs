@@ -29,7 +29,7 @@ namespace PDVS
                 cmbtransactionStatuses.Items.Add(item);
             }
             cmbtransactionStatuses.SelectedIndex = 0;
-
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         public void ShowDialog(ref E_PWCNF transactionStatus)

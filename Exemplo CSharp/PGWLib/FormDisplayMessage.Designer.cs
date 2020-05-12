@@ -33,22 +33,20 @@
             // 
             // LblMessage
             // 
-            this.LblMessage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LblMessage.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblMessage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LblMessage.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblMessage.Location = new System.Drawing.Point(0, 0);
             this.LblMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblMessage.Name = "LblMessage";
-            this.LblMessage.Size = new System.Drawing.Size(493, 267);
+            this.LblMessage.Size = new System.Drawing.Size(395, 144);
             this.LblMessage.TabIndex = 0;
-            this.LblMessage.Text = "label1";
             this.LblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LblMessage.Click += new System.EventHandler(this.LblMessage_Click);
             // 
             // FormDisplayMessage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(493, 267);
+            this.ClientSize = new System.Drawing.Size(395, 144);
             this.Controls.Add(this.LblMessage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -59,7 +57,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDisplayMessage";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.FormDisplayMessage_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormDisplayMessage_KeyUp);
             this.ResumeLayout(false);
 
         }

@@ -56,12 +56,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="TypeDisplayMessageWindow.xaml.cs">
+      <DependentUpon>TypeDisplayMessageWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SelectUserDataMessageWindow.xaml.cs">
       <DependentUpon>SelectUserDataMessageWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConfirmationWindow.xaml.cs">
       <DependentUpon>ConfirmationWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="TypeDisplayMessageWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="SelectUserDataMessageWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

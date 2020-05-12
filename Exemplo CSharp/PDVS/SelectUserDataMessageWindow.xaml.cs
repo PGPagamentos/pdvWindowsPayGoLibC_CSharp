@@ -18,25 +18,25 @@ namespace PDVS
     /// <summary>
     /// Interaction logic for AddParamWindow.xaml
     /// </summary>
-    public partial class SelectUserDataWindow : Window
+    public partial class SelectUserDataMessageWindow : Window
     {
-        public SelectUserDataWindow()
+        public SelectUserDataMessageWindow()
         {
             InitializeComponent();
             foreach (string item in Enum.GetNames(typeof(E_PWUserDataMessages)))
             {
                 cmbParam.Items.Add(item);
             }
-
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        public void ShowDialog(ref string param, ref int min, ref int max)
+        public void ShowDialog(ref string param, ref short min, ref short max)
         {
             this.ShowDialog();
 
             param = (string)cmbParam.SelectedValue;
-            min = cmbQtdMin.SelectedIndex + 1;
-            max = cmbQtdMax.SelectedIndex + 1;
+            min = (short)(cmbQtdMin.SelectedIndex + 1);
+            max = (short)(cmbQtdMax.SelectedIndex + 1);
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

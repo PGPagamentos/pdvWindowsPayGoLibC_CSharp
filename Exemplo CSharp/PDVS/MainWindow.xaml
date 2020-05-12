@@ -6,25 +6,27 @@
         xmlns:local="clr-namespace:PDVS"
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
-        Title="MainWindow" Height="441.684" Width="950.063" ShowActivated="False" >
+        Title="PDVS" Height="441.684" Width="950.063" ShowActivated="False" >
     <Grid HorizontalAlignment="Left" Width="401" Height="347" VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="99*"/>
-            <ColumnDefinition Width="51*"/>
-            <ColumnDefinition Width="188*"/>
+            <ColumnDefinition Width="65*"/>
+            <ColumnDefinition Width="114*"/>
+            <ColumnDefinition Width="222*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btnExecute" Content="Executar" Margin="113,291,0,0" Click="btnExecute_Click" Height="31" VerticalAlignment="Top" HorizontalAlignment="Left" Width="67" Grid.Column="2"/>
-        <ComboBox x:Name="cmbOper" Margin="41,14,15,0" VerticalAlignment="Top" IsReadOnly="True" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Label x:Name="LblOper" Content="PWINFO__OPERATION" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="125" Grid.ColumnSpan="2"/>
-        <ListBox x:Name="lstParameters" Margin="10,72,15,68" MouseDoubleClick="lstParameters_MouseDoubleClick" Grid.ColumnSpan="3"/>
-        <Label x:Name="LblParameters" Content="PARÂMETROS:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnClear" Content="Limpar" HorizontalAlignment="Left" Margin="25,291,0,0" Width="72" Click="btnClear_Click" Height="31" VerticalAlignment="Top"/>
-        <Button x:Name="btnAddParam" Content="Adicionar" Margin="101,47,15,0" VerticalAlignment="Top" Click="btnAddParam_Click" Grid.Column="2"/>
-        <Button x:Name="btnRemove" Content="Remover" Margin="10,47,106,0" VerticalAlignment="Top"  Click="btnRemove_Click" Grid.Column="2"/>
-        <Button x:Name="btnCaptureWithPinpad" HorizontalAlignment="Left" Margin="-20,291,0,0" VerticalAlignment="Top" Width="75" Height="31" FontSize="9" Click="btnCaptureWithPinpad_Click" Grid.Column="2" >
-            <TextBlock Height="31" RenderTransformOrigin="0.617,-0.355">Capturar dado<LineBreak/>usando PINPad</TextBlock>
-        </Button>
-        <ListBox x:Name="listBox" Margin="0,41,-515,-48" HorizontalAlignment="Right" Width="472" Grid.Column="2" SelectionChanged="listBox_SelectionChanged" Height="354" VerticalAlignment="Top" PreviewKeyDown="listBox_PreviewKeyDown"/>
-        <Label Content="LOG de Eventos da DLL" Margin="0,0,-189,311" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" RenderTransformOrigin="-0.737,1.423" Width="146"/>
+        <Button x:Name="btnExecute" Content="Executar" Margin="166,45,-14,0" Click="btnExecute_Click" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="70" Grid.Column="2"/>
+        <ComboBox x:Name="cmbOper" Margin="70,12,-14,0" VerticalAlignment="Top" IsReadOnly="True" Grid.Column="1" Grid.ColumnSpan="2" Height="22" SelectedIndex="0"/>
+        <Label x:Name="LblOper" Content="PWINFO__OPERATION:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="125" Grid.ColumnSpan="2" Height="26"/>
+        <ListBox x:Name="lstParameters" Margin="10,72,-14,-12" MouseDoubleClick="lstParameters_MouseDoubleClick" Grid.ColumnSpan="3"/>
+        <Label x:Name="LblParameters" Content="PARÂMETROS:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="26" Width="87"/>
+        <Button x:Name="btnClear" Content="Limpar" HorizontalAlignment="Left" Margin="86,45,0,0" Width="70" Click="btnClear_Click" Height="20" VerticalAlignment="Top" Grid.Column="2"/>
+        <Button x:Name="btnAddParam" Content="Adicionar" Margin="40,45,4,0" VerticalAlignment="Top" Click="btnAddParam_Click" Grid.Column="1" Height="20" Width="70"/>
+        <Button x:Name="btnRemove" Content="Remover" Margin="6,45,146,0" VerticalAlignment="Top"  Click="btnRemove_Click" Grid.Column="2" Height="20" Width="70"/>
+        <Button x:Name="btnCaptureWithPinpad" HorizontalAlignment="Left" Margin="10,364,0,-48" VerticalAlignment="Top" Width="75" Height="31" FontSize="9" Click="btnCaptureWithPinpad_Click" Grid.ColumnSpan="2" Content="Capturar dado&#xD;&#xA;usando PINpad" />
+        <ListBox x:Name="listBox" Margin="0,41,-515,-48" HorizontalAlignment="Right" Width="472" Grid.Column="2" Height="354" VerticalAlignment="Top" FontFamily="Courier New"/>
+        <Label Content="LOG de Eventos da DLL" Margin="0,0,-189,311" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" RenderTransformOrigin="-0.737,1.423" Width="146" Height="26"/>
+        <Button x:Name="btnMsgPinpad" Content="Exibir mensagem&#xD;&#xA;usando PINPad" Grid.Column="1" HorizontalAlignment="Left" Margin="29,364,0,-48" VerticalAlignment="Top" Width="72" Height="31" FontSize="9" Click="btnMsgPinpad_Click"/>
+        <Button x:Name="btnGetOperations" Content="Obter operações&#xD;&#xA;disponíveis" Grid.Column="2" HorizontalAlignment="Left" Height="31" Margin="164,364,-14,-48" VerticalAlignment="Top" Width="72" FontSize="9" Click="btnGetOperations_Click"/>
+        <Button x:Name="btnWaitEvent" Content="Aguardar evento&#xD;&#xA;usando PINpad" Grid.Column="1" HorizontalAlignment="Left" Height="31" Margin="113,364,0,-48" VerticalAlignment="Top" Width="72" FontSize="9" Grid.ColumnSpan="2" Click="btnWaitEvent_Click"/>
+        <Button x:Name="btnGetPINBlock" Content="Obter senha&#xD;&#xA;usando PINpad" Grid.Column="2" HorizontalAlignment="Left" Height="31" Margin="81,364,0,-48" VerticalAlignment="Top" Width="72" FontSize="9" Click="btnGetPINBlock_Click"/>
     </Grid>
 </Window>

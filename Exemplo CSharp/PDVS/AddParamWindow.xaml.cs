@@ -34,7 +34,7 @@ namespace PDVS
                 txtValue.Text = value;
                 cmbParam.IsEnabled = false;
             }
-
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         public void ShowDialog(ref string param, ref string value)

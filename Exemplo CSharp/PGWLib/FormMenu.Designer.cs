@@ -34,39 +34,38 @@
             // 
             // LblHeader
             // 
-            this.LblHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LblHeader.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblHeader.Location = new System.Drawing.Point(0, 0);
+            this.LblHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LblHeader.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblHeader.Location = new System.Drawing.Point(10, 2);
             this.LblHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblHeader.Name = "LblHeader";
-            this.LblHeader.Size = new System.Drawing.Size(402, 25);
+            this.LblHeader.Size = new System.Drawing.Size(396, 81);
             this.LblHeader.TabIndex = 0;
-            this.LblHeader.Text = "MENU PRINCIPAL";
             this.LblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LstMenu
             // 
-            this.LstMenu.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LstMenu.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LstMenu.FormattingEnabled = true;
-            this.LstMenu.ItemHeight = 25;
-            this.LstMenu.Location = new System.Drawing.Point(8, 38);
-            this.LstMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LstMenu.ItemHeight = 36;
+            this.LstMenu.Location = new System.Drawing.Point(7, 84);
+            this.LstMenu.Margin = new System.Windows.Forms.Padding(2);
             this.LstMenu.Name = "LstMenu";
-            this.LstMenu.Size = new System.Drawing.Size(387, 204);
+            this.LstMenu.Size = new System.Drawing.Size(402, 220);
             this.LstMenu.TabIndex = 1;
             this.LstMenu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LstMenu_MouseClick);
-            this.LstMenu.SelectedIndexChanged += new System.EventHandler(this.LstMenu_SelectedIndexChanged);
             this.LstMenu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyPressed);
             // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(402, 286);
+            this.ClientSize = new System.Drawing.Size(412, 303);
+            this.ControlBox = false;
             this.Controls.Add(this.LstMenu);
             this.Controls.Add(this.LblHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormMenu";

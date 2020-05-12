@@ -29,7 +29,6 @@ namespace PGWLib
                                                                Uma mensagem de erro pode ser obtida através da função PW_iGetResult (PWINFO_RESULTMSG).
         */
         //============================================================================================================================================
-
         [DllImport("PGWebLib.dll", CallingConvention = CallingConvention.StdCall)]
         public static extern short PW_iInit(string pszWorkingDir);
 
@@ -53,7 +52,6 @@ namespace PGWLib
                                                               Uma mensagem de erro pode ser obtida através da função PW_iGetResult (PWINFO_RESULTMSG).
         */
         //==============================================================================================================================================
-
         [DllImport("PGWebLib.dll", CallingConvention = CallingConvention.StdCall)]
         public static extern short PW_iNewTransac(byte bOper);
 
@@ -234,7 +232,7 @@ namespace PGWLib
         */
         //=========================================================================================================
         [DllImport("PGWebLib.dll", CallingConvention = CallingConvention.StdCall)]
-        public static extern short PW_iGetOperations(byte bOperType, ref PW_Operations[] vstOperations, ref short piNumOperations);
+        public static extern short PW_iGetOperations(byte bOperType,[Out] PW_Operations[] vstOperations, ref short piNumOperations);
 
 
         //=========================================================================================================
@@ -498,7 +496,6 @@ namespace PGWLib
                                            de erro pode ser obtida através da função PW_iGetResult (PWINFO_RESULTMSG).
         */
         //=========================================================================================================
-
         [DllImport("PGWebLib.dll", CallingConvention = CallingConvention.StdCall)]
         public static extern short PW_iPPDisplay(string pszMsg);
 
@@ -536,7 +533,6 @@ namespace PGWLib
             Retorno    :  PWRET_xxx.
         */
         //===========================================================================
-       
         [DllImport("PGWebLib.dll", CallingConvention = CallingConvention.StdCall)]
         public static extern short PW_iPPGenericCMD(ushort uiIndex);
 
@@ -609,7 +605,8 @@ namespace PGWLib
          */
         //=========================================================================================================
         [DllImport("PGWebLib.dll", CallingConvention = CallingConvention.StdCall)]
-        public static extern short PW_iPPGetPINBlock(short bKeyID,string pszWorkingKey, short  bMaxLen,short iToutSec,string pszPrompt,StringBuilder pszData);
+        public static extern short PW_iPPGetPINBlock(short bKeyID,string pszWorkingKey, short bMinLen,
+            short bMaxLen, short iToutSec, string pszPrompt, StringBuilder pszData);
 
         // conversao de tipos
         //        delphi     |   C#
@@ -621,6 +618,24 @@ namespace PGWLib
         //        Uint32     -> uint  
         //        AnsiString -> string  
         //        var pszData: PSZ_GetDado  -> StringBuilder pszData
+
+        //===========================================================================
+        /* Funcao     :  PW_iWaitConfirmation
+
+             Descricao  :  Esta função é utilizada sincronizar a aplicação com a thread da confirmação.
+                           Esta função apenas retorna quando o processo de confirmação é finalizado.
+
+             Entradas   :  Não há.
+
+             Saídas     :  Não há.
+
+             Retorno    :  PWRET_OK	         Operação realizada com êxito.
+                           PWRET_DLLNOTINIT	Não foi executado PW_iInit.
+                           PWRET_NOTINST	   É necessário efetuar uma transação de Instalação.
+                           Outro	            Outro erro de execução (ver “10. Códigos de retorno”, página 40).
+        \*=========================================================================================================*/
+        [DllImport("PGWebLib.dll", CallingConvention = CallingConvention.StdCall)]
+        public static extern short  PW_iWaitConfirmation();
 
     }
 }
