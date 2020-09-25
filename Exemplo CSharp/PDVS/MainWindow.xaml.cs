@@ -216,8 +216,16 @@ namespace PDVS
             lstParameters.Items.Add(new PW_Parameter(E_PWINFO.PWINFO_AUTVER.ToString(), (int)E_PWINFO.PWINFO_AUTVER, "1.0"));
             lstParameters.Items.Add(new PW_Parameter(E_PWINFO.PWINFO_AUTDEV.ToString(), (int)E_PWINFO.PWINFO_AUTDEV, "PayGo Pagamentos"));
 
-            autCap = (int)E_PWAutCapabilities.FIXO + (int)E_PWAutCapabilities.CUPOMRED + (int)E_PWAutCapabilities.CUPOMDIF;
+            autCap = (int)E_PWAutCapabilities.FIXO + (int)E_PWAutCapabilities.CUPOMRED + (int)E_PWAutCapabilities.CUPOMDIF
+                + (int)E_PWAutCapabilities.DSPCHECKOT + (int)E_PWAutCapabilities.DSPQRCODE;
             lstParameters.Items.Add(new PW_Parameter(E_PWINFO.PWINFO_AUTCAP.ToString(), (int)E_PWINFO.PWINFO_AUTCAP, autCap.ToString()));  
+        
+            // Parâmetro que indica a preferência de exibição do QR da automação, caso seja feita uma transação com carteira 
+            // digital:
+            // 1: O QR code será exibido no PIN-pad, caso o mesmo tenha um modelo compatível com essa função, senão será 
+            //   retornado a string para montagem e exibição por conta da automação.
+            // 2: A string será retornada para montagem e exibição por conta da automação.
+            lstParameters.Items.Add(new PW_Parameter(E_PWINFO.PWINFO_DSPQRPREF.ToString(), (int)E_PWINFO.PWINFO_DSPQRPREF, ((int)E_PWQrcodePref.CHECKOUT).ToString()));
         }
 
         // Função auxiliar para adição/edição de novo parâmetro
@@ -317,7 +325,7 @@ namespace PDVS
                     // Exibe uma mensagem identificando a transação que está pendente
                     MessageBox.Show(this, string.Format("Existe uma transação pendente:\n" +
                         "PNDAUTHSYST={0}\n" +
-                        "NDVIRTMERCH={1}\n" +
+                        "PNDVIRTMERCH={1}\n" +
                         "PNDREQNUM={2}\n" +
                         "PNDAUTLOCREF={3}\n" +
                         "PNDAUTEXTREF={4}\n" +

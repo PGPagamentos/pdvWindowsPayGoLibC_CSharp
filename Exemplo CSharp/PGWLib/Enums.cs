@@ -202,7 +202,9 @@ namespace PGWLib
 			PWINFO_PNDAUTEXTREF = 32521, // Referência para o Provedor da transação que está pendente
 			PWINFO_LOCALINFO1 = 32522,   // Texto exibido para um item de menu selecionado pelo usuário
 			PWINFO_SERVERPND = 32523,    // Indica se o ponto de captura possui alguma pendência a ser resolvida com o Pay&Go Web: 0: não possui pendência; 1: possui pendência
+			PWINFO_AUTHPOSQRCODE = 0x1F77, // QRcode a ser exibido no display da automação
 			PWINFO_PPINFO = 0x7F15,    // Informações do PIN-pad conectado, seguindo o padrão posição/informação abaixo: 001-020 / Nome do fabricante do PIN-pad. 021-039 / Modelo/versão do hardware. 040 / Se o PIN-pad suporta cartão com chip sem contato, este campo deve conter a letra “C”, caso contrário um espaço em branco. 041-060 / Versão do software básico/firmware. 061-064 / Versão da especificação, no formato “V.VV”. 065-080 / Versão da aplicação básica, no formato “VVV.VV AAMMDD” (com 3 espaços à direita). 081-100 / Número de série do PIN-pad (com espaços à direita)
+			PWINFO_DSPQRPREF = 0x7F50,	// Preferência do local de exibição do QRcode 1:PINpad 2:Display da automação 
 			PWINFO_DUEAMNT = 0xBF06,   // Valor devido pelo usuário, considerando PWINFO_CURREXP, já deduzido em PWINFO_TOTAMNT
 			PWINFO_READJUSTEDAMNT = 0xBF09 // Valor total da transação reajustado, este campo será utilizado caso o autorizador, por alguma regra de negócio específica dele, resolva alterar o valor total que foi solicitado para a transação
 
@@ -279,6 +281,8 @@ namespace PGWLib
 			PWDAT_PPGENCMD = 14,  // comando proprietário da rede no PIN-pad.
 			PWDAT_PPDATAPOSCNF = 16,  // confirmação positiva de dados no PIN-pad.
 			PWDAT_USERAUTH = 17,  // validação da senha.
+			PWDAT_DSPCHECKOUT = 18, // exibição de mensagem no display da automação
+			PWDAT_DSPQRCODE = 20    // exibição de QRcode no display da automação
 		}
 
 		public enum E_PWUserDataMessages : int
@@ -329,13 +333,20 @@ namespace PGWLib
 			CUPOMRED       = 16,    /* impressão do cupom reduzido */
 			SALDOVOUCHER   = 32,    /* utilização de saldo total do voucher para abatimento do valor da compra */
 			REMOCAOCARTAO  = 64,    /* tratar a remoção do cartão do PIN-pad */
-			DSPCHECKOT     = 128    /* Capacidade de exibição de mensagens durante o fluxo transacional */
+			DSPCHECKOT     = 128,   /* Capacidade de exibição de mensagens durante o fluxo transacional */
+			DSPQRCODE	   = 256	/* Capacidade de exibição de QRcode para pagamento com carteira digital */
 		}
 
 		public enum E_PWOperType : byte
 		{
 			ADMIN	= 1,
 			SALE	= 2
+		}
+
+		public enum E_PWQrcodePref : byte
+		{
+			PINPAD	= 1,
+			CHECKOUT = 2
 		}
 	}
 }

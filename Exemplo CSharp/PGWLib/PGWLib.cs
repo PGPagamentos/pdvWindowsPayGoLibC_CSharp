@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -390,6 +391,7 @@ namespace PGWLib
         private int ExecuteTransaction()
         {
             int ret;
+            FormDisplayQRcode fdqr = new FormDisplayQRcode();
 
             // Loop que só será interrompido em caso da finalização da transação, seja ela por algum
             // tipo de erro ou com o sucesso
@@ -431,7 +433,7 @@ namespace PGWLib
                     // Caso a biblioteca tenha solicitado a captura de mais dados, chama a função que
                     // faz a captura de acordo com as informações contidas em structParam
                     case (int)E_PWRET.PWRET_MOREDATA:
-                        int ret2 = ShowCorrespondingWindow(structParam);
+                        int ret2 = ShowCorrespondingWindow(structParam, ref fdqr);
                         if (ret2 != (int)E_PWRET.PWRET_OK)
                         {
                             if (ret2 == (int)E_PWRET.PWRET_CANCEL)
@@ -468,11 +470,14 @@ namespace PGWLib
 
                     // Esse retorno indica que a transação foi executada com sucesso
                     case (int)E_PWRET.PWRET_OK:
-
+                        // Para de exibir o QRcode, caso exista um sendo exibido
+                        fdqr.Stop();
                         return ret;
 
                     // Qualquer outro código de retorno representa um erro
                     default:
+                        // Para de exibir o QRcode, caso exista um sendo exibido
+                        fdqr.Stop();
                         // Desmarca o desfazimento marcado por segurança, pois a transação não foi 
                         // finalizada com sucesso
                         PendencyDelete();
@@ -483,17 +488,18 @@ namespace PGWLib
         }
         
         // Executa a captura de dado solicitada pela biblioteca
-        private int ShowCorrespondingWindow(PW_GetData[] expectedData)
+        private int ShowCorrespondingWindow(PW_GetData[] expectedData, ref FormDisplayQRcode fdqr)
         {
             int ret = 0;
             ushort index = 0;
+            FormDisplayMessage fdm;
 
             foreach (PW_GetData item in expectedData)
             {
                 // Caso exista uma mensagem a ser exibida ao usuário antes da captura do dado
                 if (item.szMsgPrevia.Length > 0)
                 {
-                    FormDisplayMessage fdm = new FormDisplayMessage();
+                    fdm = new FormDisplayMessage();
                     fdm.ShowDialog(item.szMsgPrevia, 3000);
                     fdm.Dispose();
                 }
@@ -608,6 +614,65 @@ namespace PGWLib
                         if (ret == (int)E_PWRET.PWRET_OK) 
                             ret = LoopPP();
                         return ret;
+
+                    // Exibição de mensagem de interface no display da automação
+                    case (int)E_PWDAT.PWDAT_DSPCHECKOUT:
+                        fdm = new FormDisplayMessage();
+                        fdm.Start();
+                        fdm.ChangeText(item.szPrompt);
+                        Thread.Sleep(1000);
+                        // Caso o operador tenha apertado a tecla ESC, cancela a operação e aborta o comando do PINpad
+                        if(fdm.isAborted())
+                        {
+                            // Aborta a operação em curso no PIN-pad
+                            Interop.PW_iPPAbort();
+
+                            // Atribui o retorno de aoperação cancelada
+                            ret = (int)E_PWRET.PWRET_CANCEL;
+                        }
+                        fdm.Stop();
+
+                        if(ret != (int)E_PWRET.PWRET_OK)
+                            return ret;
+                        // Sinaliza a exibição da mensagem para a biblioteca
+                        ret = Interop.PW_iAddParam(item.wIdentificador, "");
+                        return (int)E_PWRET.PWRET_OK;
+
+                    // Exibição de QRcode no display da automação
+                    case (int)E_PWDAT.PWDAT_DSPQRCODE:
+
+                        // Exemplo 2: A string com o QR Code é recebida e um QRcode é gerado utilizando uma biblioteca 
+                        // de terceiros, para compilar essa opção é necessário descomentar a função AtualizaQRCode na classe FormDisplayQRcode
+                        // e instalar a biblioteca  MessagingToolkit.QRCode em seu Visual studio através do gerenciador de pacotes
+                        // com o comando "Install-Package MessagingToolkit.QRCode -ProjectName PGWLib"
+                        StringBuilder stringQRcode = new StringBuilder(5001);
+
+                        // Tenta obter o valor do QRcode a ser exibido, caso não ache retorna operação cancelada
+                        if (Interop.PW_iGetResult((short)E_PWINFO.PWINFO_AUTHPOSQRCODE, stringQRcode, 5001) != (int)E_PWRET.PWRET_OK)
+                            return (int)E_PWRET.PWRET_CANCEL;
+
+                        // Exibe o QRcode e o prompt
+                        fdqr.Start();
+
+                        // Para esse caso em específico o QR code é muito grande para exibir no display "padrão"
+                        // Somente para esse exemplo, liga o autoSize da janela
+                        fdqr.ChangeText(item.szPrompt, stringQRcode.ToString());
+
+                        // Caso o operador tenha apertado a tecla ESC, cancela a operação e aborta o comando do PINpad
+                        if (fdqr.isAborted())
+                        {
+                            // Aborta a operação em curso no PIN-pad
+                            Interop.PW_iPPAbort();
+
+                            fdqr.Stop();
+
+                            // Atribui o retorno de aoperação cancelada
+                            return (int)E_PWRET.PWRET_CANCEL;
+                        }
+                        
+                        // Sinaliza a exibição do QRcode para a biblioteca
+                        ret = Interop.PW_iAddParam(item.wIdentificador, "");
+                        return (int)E_PWRET.PWRET_OK;
 
                     default:
                         break;
