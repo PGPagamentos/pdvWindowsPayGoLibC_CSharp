@@ -66,3 +66,4 @@ C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PGWLib
 C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.csproj.CoreCompileInputs.cache
 C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.dll
 C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.pdb
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PGWLib\obj\Debug\PGWLib.FormDisplayQRcode.resources

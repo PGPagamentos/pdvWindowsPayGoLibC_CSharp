@@ -52,6 +52,12 @@
     <Compile Include="FormDisplayMessage.Designer.cs">
       <DependentUpon>FormDisplayMessage.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDisplayQRcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDisplayQRcode.Designer.cs">
+      <DependentUpon>FormDisplayQRcode.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FormDisplayMessage.resx">
       <DependentUpon>FormDisplayMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDisplayQRcode.resx">
+      <DependentUpon>FormDisplayQRcode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>

@@ -17,3 +17,14 @@ D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp
 D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Release\PGWLib.csproj.CoreCompileInputs.cache
 D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Release\PGWLib.dll
 D:\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\pdvWindowsPayGoLibC_CSharp-master\Exemplo CSharp\PGWLib\obj\Release\PGWLib.pdb
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PGWLib\bin\Release\PGWLib.dll
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PGWLib\bin\Release\PGWLib.pdb
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PGWLib\obj\Release\PGWLib.csprojAssemblyReference.cache
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PGWLib\obj\Release\PGWLib.FormDisplayMessage.resources
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PGWLib\obj\Release\PGWLib.FormDisplayQRcode.resources
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PGWLib\obj\Release\PGWLib.FormMenu.resources
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PGWLib\obj\Release\PGWLib.FormTypedData.resources
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PGWLib\obj\Release\PGWLib.csproj.GenerateResource.cache
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PGWLib\obj\Release\PGWLib.csproj.CoreCompileInputs.cache
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PGWLib\obj\Release\PGWLib.dll
+C:\Users\guilherme\Source\Repos\pdvWindowsPayGoLibC_CSharp\Exemplo CSharp\PGWLib\obj\Release\PGWLib.pdb
